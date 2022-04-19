@@ -1,0 +1,36 @@
+Resultados
+Usando test3
+
+Placa: GWR-695-B
+Tesseract
+M8:     *CWR-695-B*
+M9:     *CWR-695-B*
+M13:    *CWR-695-B*
+EasyOCR
+        *GHR-695-B*
+
+Placa GGW-103-E
+Tesseract
+M8:         *G-103-*
+M9:         *GG-103-6*
+M13:        *G-103-*
+EasyOCR
+        *GGW-103-E*
+
+Placa: GR-4036-C
+Tesseract
+M8:     *B-4036*
+M9:     *B-4036*
+M13:    *B-4036*
+EasyOCR
+        *GR-4036-C*
+
+
+Placa: GGY-699-E 
+Tesseract
+M8:     *-699-E*
+M9:     *GG-699-E*
+M13:    *-699-E*
+
+EasyOCR
+        *GGY-699-E*
