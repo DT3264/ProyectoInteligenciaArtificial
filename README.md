@@ -43,9 +43,9 @@ Debido a que la compilación de opencv requiere de muchso recursos, es necesario
 sudo dphys-swapfile swapoff
 ```
 
-+ Modificar el tamaño del swap y cambiar ``CONF_SWAPSIZE=100`` o el valor que tenga por ``CONF_SWAPSIZE=4096``. Guardar con Ctrl+X -> Y -> Enter
++ Modificar el tamaño del swap
 ```
-sudo nano /etc/dphys-swapfile
+sudo sed -i 's/CONF_SWAPSIZE=.*/CONF_SWAPSIZE=4096/' /etc/dphys-swapfile
 ```
 + Configurar el archivo swap 
 ```
