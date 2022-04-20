@@ -1,36 +1,50 @@
 Resultados
-Usando test3
+Usando test3.py
 
 Placa: GWR-695-B
 Tesseract
 M8:     *CWR-695-B*
+0.694s
 M9:     *CWR-695-B*
+0.674s
 M13:    *CWR-695-B*
+0.774s
 EasyOCR
         *GHR-695-B*
+7.014s
 
 Placa GGW-103-E
 Tesseract
 M8:         *G-103-*
+0.774s
 M9:         *GG-103-6*
+0.698s
 M13:        *G-103-*
+0.695s
 EasyOCR
         *GGW-103-E*
+10.472s
 
 Placa: GR-4036-C
 Tesseract
 M8:     *B-4036*
+0.846s
 M9:     *B-4036*
+0.707s
 M13:    *B-4036*
+0.775s
 EasyOCR
         *GR-4036-C*
-
+12.303s
 
 Placa: GGY-699-E 
 Tesseract
 M8:     *-699-E*
+0.796s
 M9:     *GG-699-E*
+0.685s
 M13:    *-699-E*
-
+0.841s
 EasyOCR
         *GGY-699-E*
+14.565s
