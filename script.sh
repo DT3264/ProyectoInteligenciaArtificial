@@ -54,7 +54,7 @@ git clone https://github.com/DT3264/ProyectoInteligenciaArtificial.git
 cd ProyectoInteligenciaArtificial
 # Instalar dependencias requeridas
 pip install -r requirements.txt
-pip uninstall opencv-python-headless
+pip uninstall -y opencv-python-headless
 pip install numpy --upgrade
 # Instalar vs code
 sudo apt install code
