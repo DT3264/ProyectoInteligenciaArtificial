@@ -22,9 +22,23 @@
 # Script con todo automatizado
 Si prefieren que el sistema haga todo, descargar y ejecutar el script con todos los comandos mencionados con lo siguiente.
 ```
-wget https://github script completo/script.sh
+git clone git@github.com:DT3264/ProyectoInteligenciaArtificial.git
+cd ProyectoInteligenciaArtificial
+sudo chmod 755 ./incrementaSwap.sh
+sudo chmod 755 ./reduceSwap.sh
 sudo chmod 755 ./script.sh
+./incrementaSwap.sh
+```
+## Despues de reiniciar ejecutar lo siguiente
+```
+cd ProyectoInteligenciaArtificial
 ./script.sh
+```
+
+## Posterior a que se instaló todo, se recomienda ejecutar el siguiente código
+```
+cd ProyectoInteligenciaArtificial
+./reduceSwap.sh
 ```
 
 # Instalación del sistema
@@ -46,6 +60,7 @@ sudo dphys-swapfile swapoff
 + Modificar el tamaño del swap
 ```
 sudo sed -i 's/CONF_SWAPSIZE=.*/CONF_SWAPSIZE=4096/' /etc/dphys-swapfile
+sudo sed -i 's/.*CONF_MAXSWAP=.*/CONF_MAXSWAP=4096/' /etc/dphys-swapfile
 ```
 + Configurar el archivo swap 
 ```
@@ -74,7 +89,7 @@ sudo chmod 755 ./OpenCV-4-5-4.sh
 ### 3) Reducir la memoria swap
 La memoria swap reside en la tarjeta SD, entonces mientras más grande sea la memoria swap, más lectura/escritura habrá en la tarjeta SD resultando en un corto tiempo de vida. 
 
-Se recomienda seguir las instriccuiones del paso 1 pero definir ``CONF_SWAPSIZE=100`` que es su valor predeterminado en la raspberry 4b.
+Se recomienda seguir las instriccuiones del paso 1 pero definir ``CONF_SWAPSIZE=100`` y ``CONF_MAXSWAP=100`` que es su valor predeterminado en la raspberry 4b.
 
 # Compilación de picamera2
 Instalar paquetes necesarios
@@ -110,7 +125,7 @@ ninja -C build
 sudo ninja -C build install
 ```
 
-### 4) some DRM/KMS bindings (?)
+### 4) Clonar e instalar otras librerias necesarias
 ```
 cd
 git clone https://github.com/tomba/kmsxx.git
@@ -119,15 +134,11 @@ git submodule update --init
 sudo apt install -y libfmt-dev libdrm-dev
 meson build
 ninja -C build
-```
-
-### 5) El modulo python-v4l2
-```
 cd
 git clone https://github.com/RaspberryPiFoundation/python-v4l2.git
 ```
 
-### 6) clonar el repo de picamera2
+### 5) clonar el repo de picamera2
 ```
 cd
 sudo pip3 install pyopengl piexif
@@ -135,26 +146,26 @@ sudo apt install -y python3-pyqt5
 git clone https://github.com/raspberrypi/picamera2.git
 ```
 
-### 7) exportar las librerias a python
+### 6) exportar las librerias a python
 ```
 cd
 echo "export PYTHONPATH=/home/pi/picamera2:/home/pi/libcamera/build/src/py:/home/pi/kmsxx/build/py:/home/pi/python-v4l2" >> .bashrc
 ```
 
-# Instalación de librerías de python requeridas
-Aquí se instalan las librerias de pip
+# Instalación de librerías de python requeridas para los codigos
 ```
-easyocr
-imutils, ver que otras que no enliste
-wget https://github archivo con dependencias/requrements.txt
-sudo pip install requirements.txt
+git clone https://github.com/DT3264/ProyectoInteligenciaArtificial.git
+cd ProyectoInteligenciaArtificial
+pip install -r requirements.txt
+sudo apt install -y tesseract-ocr
+pip uninstall -y opencv-python-headless
+pip install numpy --upgrade
 ```
 
-# Ejecucion del programa
-Y descargamos y ejecutamos el codigo
+# Instalacion y ejecucion de vscode para ejecutar el codigo
 ```
-wget https://github codigo de python/codigo.py
-python codigo.py (Ver si asi funciona)
+sudo apt install code
+code .
 ```
 
 # Referencias
