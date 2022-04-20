@@ -1,29 +1,34 @@
 Base
     Codigo base para tomar la imagen de la camara y poder realizar distintas operaciones sobre la imagen y mostrar los resultados en pantalla en una manera ordenada
 
-Test1 (Segmentacion y deteccion de texto)
+Test1 (Uso de GPIO)
+	Ejemplo sencillo de uso de leds y botones
+
+Test2 (GPIO y camara)
+	Ejemplo de como tomar una foto cuando se presiona un boton
+
+Test3 (Segmentacion y deteccion de texto)
     Segmentacion sencilla. Intenta detectar el texto del contorno mas grande de la imagen, aunque es muy impresiso tomando el contorno de las placas.
     No detecta la placa con marco ni la placa con luz de fondo
     Ejemplo de uso de tesseract. En psmMode=8,9 o 13 detecta parcialmente el texto
 
-   
-Test2 (Segmentacion y deteccion de texto)
+Test4 (Segmentacion y deteccion de texto)
     Segmentacion sencilla. Tan pronto encuentra un poligono de 4 puntos, intenta detectar el texto que tenga dentro.
     No detecta la placa con marco ni la placa con luz de fondo.
     Ejemplo inicial de uso de easyorc (mucho mejor que tesseract pero muy lento)
     Detecta el texto con gran precision de casi toda la placa que se le pase (si es segmentada correctamente)
 
-Test3  (Segmentacion y deteccion de texto)
-    Segmentacion mejorada. Detecta todas las placas de prueba. El verde es el cuadro mas pequeno que contiene al poligono en azul
-    Detecta el texto correctamente de todas las placas excepto la que tiene luz de fondo.
-    El mejor al momento. (A veces confunde W con H)
-
-Test4 (Segmentacion)
+Test5 (Segmentacion)
     Segmentacion agresiva, dentro de la imagen de grises puede verse el segmento de la placa de manera muy clara.
     Podria ser util pero requeriria analisis y experimetnacion
 
-Test5 (Segmentacion)
-    Segmentacion igual de buena, ligeramente mejor que Test3 pero con otros metodos.
+Test6 (Segmentacion)
+    Segmentacion igual de buena, ligeramente mejor que Test7 pero con otros metodos.
+	
+Test7  (GPIO, segmentacion y deteccion de texto)
+    Segmentacion mejorada. Detecta todas las placas de prueba. El verde es el cuadro mas pequeno que contiene al poligono en azul
+    Detecta el texto correctamente de todas las placas excepto la que tiene luz de fondo.
+    El mejor al momento. (A veces confunde W con H)
 
 Podrian servir de segmentacion pero no se habia encontrado antes
 https://www.danvk.org/2015/01/07/finding-blocks-of-text-in-an-image-using-python-opencv-and-numpy.html

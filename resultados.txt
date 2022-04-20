@@ -1,5 +1,5 @@
 Resultados
-Usando test3.py
+Usando test7.py
 
 Placa: GWR-695-B
 Tesseract
