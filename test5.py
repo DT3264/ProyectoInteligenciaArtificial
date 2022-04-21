@@ -4,6 +4,7 @@
 import cv2
 import numpy as np
 from picamera2.picamera2 import *
+import imutils
 
 cv2.startWindowThread()
 
@@ -29,7 +30,33 @@ while True:
     img_res = smoother_edges(img_res, (3 * 2 + 1, 3 * 2 + 1), (blurPos * 2 + 1, blurPos * 2 + 1))
     threshSize = 200
     _, img_res = cv2.threshold(img_res, threshSize, 255, 0)
+    # Extrae contornos
+    contours = cv2.findContours(img_res, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours = imutils.grab_contours(contours)
+    contours = sorted(contours, key = cv2.contourArea, reverse = True)
+    # Obtiene y dibuja el contorno mas grande
+    big_contour = max(contours, key=cv2.contourArea)
+    cv2.drawContours(img, [big_contour], -1, (0,255,0), 3)
+    # Obtiene y dibuja el rectangulo mas pequeno que contiene al contorno
+    x,y,w,h = cv2.boundingRect(big_contour)
+    cv2.rectangle(img, (x, y), (x + w, y + h), (0,0,255), 3)
+
+
     images = [img, img_res]
+
+    if len(contours) > 0:
+        # Crea una mascara con el contorno de la placa
+        baseImage = img.copy()
+        mask = np.zeros(img_res.shape,np.uint8)
+        cv2.drawContours(mask, [big_contour],0,255,3)
+        images.append(mask)
+        cv2.bitwise_and(baseImage,baseImage,mask=mask)
+        # Now crop
+        (x, y) = np.where(mask == 255)
+        (topx, topy) = (np.min(x), np.min(y))
+        (bottomx, bottomy) = (np.max(x), np.max(y))
+        cropped = img[topx:bottomx+1, topy:bottomy+1]
+        images.append(cropped)
     index = 0
     width = 0
     height = 0
